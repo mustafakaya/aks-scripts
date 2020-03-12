@@ -2,26 +2,28 @@
 az aks update -n aksdevcluster  -g aks-dev-rg --attach-acr myregistry
 
 
-#example yaml file : acr-nginx.yaml
+#example yaml file : acr-mywebapp.yaml
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nginx0-deployment
+  name: mywebapp
   labels:
-    app: nginx0-deployment
+    app: mywebapp
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: nginx0
+      app: mywebapp
   template:
     metadata:
       labels:
-        app: nginx0
+        app: mywebapp
     spec:
+      nodeSelector:
+        "beta.kubernetes.io/os": windows
       containers:
-      - name: nginx
-        image: <replace this image property with you acr login server, image and tag>
+      - name: mywebapp
+        image: myregistry.azurecr.io/mywebapp:aspnetapp
         ports:
         - containerPort: 80
         
