@@ -7,8 +7,17 @@ az extension update --name aks-preview
 # register windows preview
 az feature register --name WindowsPreview --namespace Microsoft.ContainerService
 
-# check registration status
+# check registration status and wait until see "Registered"
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/WindowsPreview')].{Name:name,State:properties.state}"
 
 # refresh Microsoft.ContainerService provider
 az provider register --namespace Microsoft.ContainerService
+
+# add node pool
+az aks nodepool add \
+    --resource-group aks-dev-rg \
+    --cluster-name aksdevcluster \
+    --os-type Windows \
+    --name npwin \
+    --node-count 1 \
+    --kubernetes-version 1.15.7
