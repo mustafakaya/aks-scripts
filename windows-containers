@@ -1,0 +1,14 @@
+# Install the aks-preview extension
+az extension add --name aks-preview
+
+# Update the extension to make sure you have the latest version installed
+az extension update --name aks-preview
+
+# register windows preview
+az feature register --name WindowsPreview --namespace Microsoft.ContainerService
+
+# check registration status
+az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/WindowsPreview')].{Name:name,State:properties.state}"
+
+# refresh Microsoft.ContainerService provider
+az provider register --namespace Microsoft.ContainerService
