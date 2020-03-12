@@ -1,0 +1,8 @@
+#install cli
+az aks install-cli
+
+#connect Kubernetes cluster
+az aks get-credentials --resource-group aks-dev-rg --name aksdevcluster
+
+#get nodes
+kubectl get nodes
