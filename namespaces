@@ -15,3 +15,17 @@ kubectl run nginx --image=nginx --namespace=my-namespace
 
 #get pods in a namespace
 kubectl get pods --namespace=my-namespace
+
+# what is the current context
+kubectl config view
+
+#define a context for kubectl client
+kubectl config set-context dev --namespace=development \
+  --cluster=context cluster name  \
+  --user=context user name
+  
+ # switch to operate in a new context
+ kubectl config use-context dev
+ 
+ #verift context
+ kubectl config current-context
