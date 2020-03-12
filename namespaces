@@ -1,0 +1,17 @@
+#get all namespaces
+kubectl get namespace
+
+#create a new namespace
+kubectl create namespace my-namespace
+
+#delete a namespace
+kubectl delete namespaces my-namespace
+
+#get detailed information for a namespace
+kubectl describe namespaces my-namespace
+
+#run with namespace
+kubectl run nginx --image=nginx --namespace=my-namespace
+
+#get pods in a namespace
+kubectl get pods --namespace=my-namespace
