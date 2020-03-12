@@ -6,3 +6,6 @@ az aks get-credentials --resource-group aks-dev-rg --name aksdevcluster
 
 #get nodes
 kubectl get nodes
+
+#get services
+kubectl get svc 
