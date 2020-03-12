@@ -1,0 +1,14 @@
+	PASSWORD_WIN="P@ssw0rd1234"
+  # create cluster
+  az aks create \
+	    --resource-group aks-dev-rg \
+	    --name aksdevcluster \
+	    --node-count 2 \
+	    --enable-addons monitoring \
+	    --kubernetes-version 1.15.7 \
+	    --generate-ssh-keys \
+	    --windows-admin-password $PASSWORD_WIN \
+	    --windows-admin-username azureuser \
+	    --vm-set-type VirtualMachineScaleSets \
+	    --load-balancer-sku standard \
+    --network-plugin azure
