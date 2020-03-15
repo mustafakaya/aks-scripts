@@ -9,3 +9,13 @@ kubectl get nodes
 
 #get services
 kubectl get svc 
+
+#list all applications and services
+kubectl get all
+
+#get ingress resources
+kubectl get ing
+
+
+#delete 
+kubectl delete "deploymentName"
