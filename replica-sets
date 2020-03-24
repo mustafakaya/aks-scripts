@@ -1,6 +1,3 @@
-#scale replicaset
-kubectl 
-
 #list replicaset
 kubectl get rs
 
