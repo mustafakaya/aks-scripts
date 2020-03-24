@@ -1,0 +1,20 @@
+#scale replicaset
+kubectl 
+
+#list replicaset
+kubectl get rs
+
+#delete replicaset
+kubectl delete rs my-replica-set
+
+#export definition
+kubectl get rs my-replica-set -o yaml > my-replica-set.yaml
+
+#create replicaset
+kubectl create -f my-replica-set.yaml
+
+#scale replicaset
+kubectl scale rs my-replica-set --replicas=4
+
+#describe replicaset
+kubectl describe rs my-replica-set
