@@ -19,3 +19,4 @@ kubectl get ing
 
 #delete 
 kubectl delete "deploymentName"
+eqwe
